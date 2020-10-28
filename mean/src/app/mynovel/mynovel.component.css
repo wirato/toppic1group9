@@ -1,17 +1,17 @@
 header {
     width: 100%;
 
-    .example-spacer {
-      flex: 1 1 auto;
-    }
-    
-    .mat-toolbar {
-      width: 70%;
-      margin-left: auto;
-      margin-right: auto;
-    }
   }
 
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .mat-toolbar {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 .body {
     width: 70%;
     margin-left: auto;
@@ -47,12 +47,6 @@ header {
     -webkit-box-orient: vertical;
     overflow: hidden;
     }
-
-//   img{
-//     margin: 40px;
-//     width: 275px;
-//     height: 350px
-//   }
 
   .over-lay{
     position: relative;

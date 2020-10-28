@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable, BehaviorSubject, EMPTY } from 'rxjs';
-import { tap, pluck } from 'rxjs/operators';
+import { tap, pluck, map } from 'rxjs/operators';
 
-import { User } from '@app/shared/interfaces';
+import { User, Post, Ep } from '@app/shared/interfaces';
 
 import { TokenStorage } from './token.storage';
 
@@ -12,6 +12,7 @@ interface AuthResponse {
   token: string;
   user: User;
 }
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -31,6 +32,50 @@ export class AuthService {
       );
   }
 
+  postnovel(title: string, detail: string, imageTitle: string, uid: string): Observable<Post>{
+    return this.http.post('/api/postnovel/create', { title, detail, imageTitle, uid}).pipe(tap(() => {}),pluck('post'));
+  }
+
+
+  delhistory(_id: string){
+    return this.http
+    .get('/api/postnovel/'+_id).pipe(
+      map(res => res)
+    )
+  }
+
+  delep(_id: string){
+    return this.http
+    .get('/api/postep/'+_id).pipe(
+      map(res => res)
+    )
+  }
+
+
+  postep(ep: number, titleep: string, detail: string, titleid: string): Observable<Ep>{
+    console.log(ep, titleep, detail, titleid);
+    return this.http.post('/api/postep/create', { ep, titleep, detail, titleid}).pipe(tap(() => {}),pluck('ep'));
+
+  }
+
+  getpostnovel(){
+    return this.http.get('/api/postnovel/all').pipe(
+      map(res => res)
+    );
+  }
+
+  getpostep(){
+    return this.http.get('/api/postep/all').pipe(
+      map(res => res)
+    );
+  }
+  getnovel(id: string){
+    // console.log(id);
+    return this.http.get('/api/postnovel/get/'+ id).pipe(
+      map(res => res)
+    );
+  }
+
   register(
     fullname: string,
     email: string,
@@ -45,10 +90,6 @@ export class AuthService {
         repeatPassword,
       })
       .pipe(
-        tap(({ token, user }) => {
-          this.setUser(user);
-          this.tokenStorage.saveToken(token);
-        }),
         pluck('user')
       );
   }

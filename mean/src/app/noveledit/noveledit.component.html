@@ -1,0 +1,43 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<div class="body">
+    
+    <div class="img"><br>
+        <div class="row">
+            <div class="col-3">
+                <img class="card-img-top" src="./assets/images/{{novel.imageTitle}}" alt="Card image cap" style="height: 45rem;  margin: 0px 20px;">
+            </div>
+            <div class="col-9">
+                <h2 > &nbsp;&nbsp; &nbsp;<b>ชื่อเรื่อง : {{novel.title}}</b></h2>
+               <h3 style="margin: 0px 35px;"> &nbsp;&nbsp; &nbsp;&nbsp;เรื่องย่อ : {{novel.detail}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="list-group" style="margin: 30px 0px;">
+        <a class="list-group-item list-group-item-action active head">
+                <b>ตอนทั้งหมด</b>
+                <span class="example-spacer"></span>
+                <div style="text-align: right; margin-top: -35px;">
+                    <button type="button" class="btn btn-success" routerLink="/createep/{{novel._id}}" >เพิ่มตอน</button>
+                </div>
+        </a>
+        <div *ngFor="let epn of ep; index as i; first as isFirst">
+            <div *ngIf="novel._id == epn.titleid">
+                <a class="list-group-item list-group-item-action">
+                    <div routerLink="/readnovel/{{epn._id}}">
+                        ตอนที่ {{epn.ep}} : {{epn.titleep}}
+                    </div>
+                    <div  style="text-align: right; margin-top: -20px;">
+                <button type="button" class="btn btn-danger" (click)="onDelete(epn._id)">ลบ</button>
+                </div>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>

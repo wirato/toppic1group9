@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<div class="body">
+<div>
+    <div *ngIf="novel" style="text-align: center;  margin: 0px 100px"> <br>
+        <div style="margin-top: 30px">
+            <h2 > &nbsp;&nbsp; &nbsp;<b>ชื่อเรื่อง : {{novel.title}}</b></h2>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1"><h4>ตอนที่</h4></label>
+            <input type="number" class="form-control" #ep>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1"><h4>ชื่อตอน</h4></label>
+            <input type="text" class="form-control" #titleep>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1"><h4>เนื้อหา</h4></label>
+            <textarea class="form-control" rows="30" #detail></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="createEp(ep.value,titleep.value, detail.value,novel._id)">Post</button>
+    </div><br><br><br><br>
+</div>
+</div>

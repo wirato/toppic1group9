@@ -14,6 +14,11 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './shared/services';
 import { PostpageComponent } from './postpage/postpage.component';
 import { CreatepostpageComponent } from './createpostpage/createpostpage.component';
+import { NovelComponent } from './novel/novel.component';
+import { MynovelComponent } from './mynovel/mynovel.component';
+import { NoveleditComponent } from './noveledit/noveledit.component';
+import { CreateepComponent } from './createep/createep.component';
+import { ReadnovelComponent } from './readnovel/readnovel.component';
 
 export function appInitializerFactory(authService: AuthService) {
   return () => authService.checkTheUserOnTheFirstLoad();
@@ -21,7 +26,7 @@ export function appInitializerFactory(authService: AuthService) {
 
 @NgModule({
   imports: [BrowserAnimationsModule, HttpClientModule, SharedModule, AppRoutingModule],
-  declarations: [AppComponent, HeaderComponent, HomeComponent, PostpageComponent, CreatepostpageComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, PostpageComponent, CreatepostpageComponent, NovelComponent, MynovelComponent, NoveleditComponent, CreateepComponent, ReadnovelComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

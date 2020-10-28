@@ -4,7 +4,7 @@
 
 <header class="bg-secondary">
   <mat-toolbar class="bg-secondary">
-    <button type="button" class="btn btn-primary" [routerLink]="['/mynovel']">นิยายของฉัน</button>
+    <button type="button" class="btn btn-primary" routerLink='/createpostpage'>เพื่มนิยายเรื่องใหม่</button>
     <span class="example-spacer"></span>
     <div>
       <form class="form-inline ml-auto">
@@ -19,23 +19,29 @@
 
 <div class="body">
     <div class="img"><br>
-        <img src="./assets/img/Novel_Share_2.png" alt="" class="imglogo">
+        
     </div>
 
     <div class="recommend">
-        <p>แนะนำนิยาย</p>
+        <p>นิยายของฉัน</p>
     </div>
     <div class="row" style="margin: 10px;">
         <div class="col-sm-3" *ngFor="let novel of novelall; index as i; first as isFirst" style="margin: 10px 0px;">
-            <a routerLink="/novel/{{novel._id}}" placement="bottom">
-                <div class="card" >
-                    <img class="card-img-top" src="./assets/images/{{novel.imageTitle}}" alt="Card image cap" style="height: 35rem;">
-                    <div class="card-body" style="height: 10rem;">
-                        <h4 class="card-title cut-text"><b>{{novel.title}}</b></h4>
-                        <p class="card-text cut-text-multi">&nbsp;&nbsp;&nbsp;&nbsp;{{novel.detail}}</p>
+            <div *ngIf="uid_ == novel.uid">
+                <a routerLink="/noveledit/{{novel._id}}" placement="bottom">
+                    <div class="card" >
+                        <img class="card-img-top" src="./assets/images/{{novel.imageTitle}}" alt="Card image cap" style="height: 35rem;">
+                        <div class="card-body" style="height: 10rem;">
+                            <h4 class="card-title cut-text"><b>{{novel.title}}</b></h4>
+                            <p class="card-text cut-text-multi">&nbsp;&nbsp;&nbsp;&nbsp;{{novel.detail}}</p>
+                        </div>
+                        
                     </div>
+                </a>
+                <div style="margin-top: 0px; margin-right: 0px;">
+                <button type="button" class="btn btn-danger" (click)="onDelete(novel._id)">ลบ</button>
                 </div>
-            </a>
+            <div >
         </div>
     </div>
 </div>

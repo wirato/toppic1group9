@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<div class="body card">
+    
+    <div class="img"><br>
+        <div>
+            <div class="" *ngFor="let novels of novel; index as i; first as isFirst">
+                <div *ngIf="ep.titleid == novels._id">
+                    <h2 style="text-align: center;"><b>ชื่อเรื่อง : {{novels.title}}</b></h2>
+                </div>
+            </div><br>
+            <div>
+                <h3 style="text-align: center;"> ตอนที่ {{ep.ep}} : {{ep.titleep}}</h3>
+            </div><br><br>
+            <div class="card-body" style="margin: 0px 25px">
+                <h3 style="line-height: 35pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ep.detail}}</h3>
+            </div><br><br><br><br>
+        </div>
+    </div>
+
+    
+</div>

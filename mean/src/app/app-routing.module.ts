@@ -5,6 +5,11 @@ import { AuthGuard } from './shared/guards';
 import { HomeComponent } from './home/home.component';
 import { PostpageComponent } from './postpage/postpage.component';
 import { CreatepostpageComponent } from './createpostpage/createpostpage.component';
+import { NovelComponent } from './novel/novel.component';
+import { MynovelComponent } from './mynovel/mynovel.component';
+import { NoveleditComponent } from './noveledit/noveledit.component';
+import { CreateepComponent } from './createep/createep.component';
+import { ReadnovelComponent } from './readnovel/readnovel.component';
 
 
 const routes: Routes = [
@@ -28,6 +33,26 @@ const routes: Routes = [
   {
     path: 'createpostpage',
     component: CreatepostpageComponent,
+  },
+  {
+    path: 'novel/:id',
+    component: NovelComponent,
+  },
+  {
+    path: 'noveledit/:id',
+    component: NoveleditComponent,
+  },
+  {
+    path: 'mynovel',
+    component: MynovelComponent,
+  },
+  {
+    path: 'createep/:id',
+    component: CreateepComponent,
+  },
+  {
+    path: 'readnovel/:id',
+    component: ReadnovelComponent,
   },
 ];
 
